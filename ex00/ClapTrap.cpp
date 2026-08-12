@@ -15,6 +15,8 @@ ClapTrap::ClapTrap(const ClapTrap &other) : _name(other._name), _hitPoints(other
     std::cout << "ClapTrap copy constructor called" << std::endl;
 }
 
+// Ele serve para permitir que um ClapTrap que já existe receba os valores de outro ClapTrap.
+
 ClapTrap &ClapTrap::operator=(const ClapTrap &other)
 {
     std::cout << "ClapTrap copy assignment operator called" << std::endl;
@@ -46,7 +48,7 @@ void ClapTrap::attack(const std::string &target)
     }
 }
 
-void ClapTrap::takeDamage(unsigned int amount)
+void ClapTrap::takeDamage(unsigned int amount) // deve fazer o ClapTrap perder amount pontos de vida.
 {
     if (_hitPoints > 0)
     {
@@ -66,7 +68,7 @@ void ClapTrap::takeDamage(unsigned int amount)
     }
 }
 
-void ClapTrap::beRepaired(unsigned int amount)
+void ClapTrap::beRepaired(unsigned int amount) // faz o ClapTrap recuperar amount de HP e que reparar custa 1 ponto de energia. Se ele não tiver HP ou energia, não pode fazer a ação.
 {
     if (_energyPoints > 0 && _hitPoints > 0)
     {
